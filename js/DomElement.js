@@ -3,6 +3,8 @@ export class DomElement {
         this.tagName = tagName;
         this.attributes = attributes;
         this.children = children;
+        // this property is for checking in el function 
+        // whether children argument DomElement or not
         this.domElementKind = true;
     }
 
@@ -16,9 +18,8 @@ export class DomElement {
     // iterate on his children then children iterate on there children and so on 
     // until children will be text node or null (no closing tag)
     draw() {
-        console.log(this.tagName,"wwww")
         const element = document.createElement(this.tagName);
-        console.log(element)
+        
         // setting attributes
         for (let attribute in this.attributes) {
             element.setAttribute(attribute, this.attributes[attribute]);
@@ -28,7 +29,6 @@ export class DomElement {
         // or element hasnt closing tag than stop there
         if (typeof this.children === "string") {
             element.innerHTML = this.children;
-            console.log("rrrr", this.children)
             return element;
         } else if (!this.children) {
             return element;
@@ -43,10 +43,8 @@ export class DomElement {
          } else {
              for (let k of this.children) {
                 element.appendChild(k.draw());
-
              }
          }
-
 
         return element;
     }

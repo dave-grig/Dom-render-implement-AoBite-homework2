@@ -52,7 +52,6 @@ import { DomElement } from "./DomElement.js";
     
     // and so on for every tag which is available nowdays
     // but actually i dont like this approach because there could be infinite tags
-
 }
 
 

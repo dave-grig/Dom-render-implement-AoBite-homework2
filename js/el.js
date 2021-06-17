@@ -1,18 +1,14 @@
-import {DomElement} from './DomElement.js';
 import documentElements from './elements.js'
 
 const el = (type,attributes, children) => {
-  console.log(children,"llll")
   const errorMessage = "incorrect type of argument";
   
   if ((typeof type !== "string" || !type)
      || (!attributes || typeof attributes !== "object")
-     || ((children !== null && !Array.isArray(children) && typeof children !== "string" && typeof children !== "object") || (children && typeof children === "object" && !Array.isArray(children) && !children.domElementKind))) {
-      console.log(type,"asasa")
+     || ((children !== null && !Array.isArray(children) && typeof children !== "string" && typeof children !== "object")
+     || (children && typeof children === "object" && !Array.isArray(children) && !children.domElementKind))) {
       return errorMessage;
-  } 
-  // (!Array.isArray(children) && children !== null && typeof children !== "string" && typeof children !== "object") || (children && !Array.isArray(children) && typeof children === "object" && !children.domElementKind)
-  
+  }   
 
   // if children is array of el functions which are ready to execute
   // than we call them to get DomElement in every index of array
